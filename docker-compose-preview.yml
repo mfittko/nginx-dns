@@ -42,9 +42,9 @@ services:
     ports:
       - "3000:80"
     environment:
-      - VIRTUAL_HOST=test.${PULLPREVIEW_PUBLIC_DNS}
+      - VIRTUAL_HOST=main-ip-3-66-166-70.previews.sofatutor.de
       - VIRTUAL_PORT=3000
-      - LETSENCRYPT_HOST=*.${PULLPREVIEW_PUBLIC_DNS}
+      - LETSENCRYPT_HOST=main-ip-3-66-166-70.previews.sofatutor.de
     depends_on:
       - acme
 
