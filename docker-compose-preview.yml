@@ -36,9 +36,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     depends_on:
       - nginx
-    networks:
-      - local
-      - web
 
   backend:
     image: nginxdemos/hello
@@ -48,6 +45,8 @@ services:
       - VIRTUAL_HOST=${PULLPREVIEW_PUBLIC_DNS}
       - VIRTUAL_PORT=3000
       - LETSENCRYPT_HOST=${PULLPREVIEW_PUBLIC_DNS}
+    depends_on:
+      - acme
 
 volumes:
   conf:
