@@ -44,7 +44,7 @@ services:
     environment:
       - VIRTUAL_HOST=${PULLPREVIEW_PUBLIC_DNS}
       - VIRTUAL_PORT=3000
-      - LETSENCRYPT_HOST=${PULLPREVIEW_PUBLIC_DNS}
+      - LETSENCRYPT_HOST=*.${PULLPREVIEW_PUBLIC_DNS}
     depends_on:
       - acme
 
