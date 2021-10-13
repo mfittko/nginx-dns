@@ -1,5 +1,6 @@
 server {
   listen 80;
+  listen 443 default_server ssl;
 
   server_name ~^[a-z-]*(?<ip1>25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)-(?<ip2>25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)-(?<ip3>25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)-(?<ip4>25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).*\.$NGINX_HOST$;
   set $upstream $scheme://$ip1.$ip2.$ip3.$ip4:$BACKEND_PORT;
