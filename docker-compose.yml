@@ -12,3 +12,6 @@ services:
     environment:
       - NGINX_HOST=${NGINX_HOST}
       - BACKEND_PORT=${BACKEND_PORT}
+      - PROXY_REALM=${PROXY_REALM}
+      - HTTP_BASIC_USER=${HTTP_BASIC_USER}
+      - HTTP_BASIC_PASS=${HTTP_BASIC_PASS}
