@@ -7,9 +7,12 @@ on:
     types: [labeled, unlabeled, synchronize, closed, reopened]
 
 jobs:
-  create-envfile:
+  deploy:
     runs-on: ubuntu-20.04
+    if: github.event_name == 'push' || github.event.label.name == 'preview' || contains(github.event.pull_request.labels.*.name, 'preview')
+    timeout-minutes: 30
     steps:
+      - uses: actions/checkout@v2
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1
         with:
@@ -17,13 +20,6 @@ jobs:
           envkey_NGINX_HOST: "custom.pullpreview.com"
           envkey_HTTP_BASIC_USER: ${{ secrets.HTTP_BASIC_USER }}
           envkey_HTTP_BASIC_PASS: ${{ secrets.HTTP_BASIC_PASS }}
-  deploy:
-    needs: create-envfile
-    runs-on: ubuntu-20.04
-    if: github.event_name == 'push' || github.event.label.name == 'preview' || contains(github.event.pull_request.labels.*.name, 'preview')
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v2
       - uses: pullpreview/action@v5
         with:
           admins: mfittko
