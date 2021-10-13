@@ -15,3 +15,7 @@ Now open following url:
 http://foo-172-17-0-1-www.localhost.com:8081/
 
 Enter user/pass: foo/bar
+
+## !!!WARNING!!!
+
+Don't run this without basic authentication set as this would open the door to anyone using your domain for their servers and even be able to generate ssl certificates for them.
