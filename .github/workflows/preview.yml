@@ -17,7 +17,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_PROXY_REALM: "nginx proxy"
-          envkey_NGINX_HOST: "custom.pullpreview.com"
+          envkey_NGINX_HOST: "previews.sofatutor.com"
           envkey_BACKEND_PORT: "80"
           envkey_HTTP_BASIC_USER: "${{ secrets.HTTP_BASIC_USER }}"
           envkey_HTTP_BASIC_PASS: "${{ secrets.HTTP_BASIC_PASS }}"
@@ -27,7 +27,7 @@ jobs:
           always_on: main
           app_path: .
           instance_type: nano_2_0
-          dns: custom.pullpreview.com
+          dns: previews.sofatutor.com
           registries: docker://index.docker.io/v1
           compose_files: docker-compose-preview.yml
         env:
