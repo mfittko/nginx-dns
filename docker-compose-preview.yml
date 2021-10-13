@@ -18,5 +18,5 @@ services:
 
   backend:
     image: nginxdemos/hello
-    expose:
-     - "80"
+    ports:
+     - "80:80"
